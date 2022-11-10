@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "Dark Theme for Jira",
+    "description": "Allow user to switch between light and dark theme on the Jira website",
+    "version": "1.0",
+    "icons": {
+        "16": "./images/dark16.png",
+        "48": "./images/dark48.png",
+        "128": "./images/dark128.png"
+    },
+    "page_action": {
+        "default_action": {
+            "16": "./images/dark16.png",
+            "48": "./images/dark48.png",
+            "128": "./images/dark128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*/jira/*"],
+            "js": ["index.js"]
+        }
+    ],
+    "author": "Luca Palminteri"
+  }
