@@ -1,5 +1,8 @@
 let header = document.getElementsByTagName("header")[0].childNodes[1];
+const btnCreate = document.getElementById("createGlobalItemIconButton") 
 const btnTheme = document.createElement("button")
+
+
 btnTheme.textContent = "☀"
 btnTheme.style.borderRadius = "50%"
 btnTheme.style.border = "none"
@@ -9,10 +12,6 @@ btnTheme.style.fontSize = "20px"
 btnTheme.style.backgroundColor = "#CCC"
 
 let theme = 'default';
-
-// btnTheme.addEventListener('mouseover', ()=> btnTheme.style.backgroundColor = "#CCC")
-
-// btnTheme.addEventListener('mouseleave', ()=> btnTheme.style.backgroundColor = "transparent")
 
 btnTheme.addEventListener('click', () => {
     if(theme != 'dark') {
@@ -25,6 +24,8 @@ btnTheme.addEventListener('click', () => {
         restoreTheme()
     }
 })
+
+document.addEventListener('DOMContentLoaded',() => header.appendChild(btnTheme))
 
 header.appendChild(btnTheme)
 
@@ -49,7 +50,7 @@ const darkTheme = () => {
         --ds-surface: #333;
         --ds-surface-overlay: #444;
         --ds-surface-raised: #333;
-        --ds-text: #8ec4fd;
+        --ds-text: #FFF;
         --ds-text-disabled: #aaa;
         --ds-text-highEmphasis: #fff;
         --ds-text-link-resting: #429eff;
@@ -58,15 +59,13 @@ const darkTheme = () => {
     }
     `,0);
     
-    sheet.insertRule(`
-    header {
-        background: #222 !important;
-    }
-    `,0);
+    sheet.insertRule(`header {background: #222 !important;}`,0);
+
+    sheet.insertRule(" header button,input {background-color: #444 !important; color: #FFF !important}",0)
 }
 
 const restoreTheme = () => {
-    for (let i = 0; i < 2; i++) sheet.deleteRule(0);
+    for (let i = 0; i < 3; i++) sheet.deleteRule(0);
 }
 
 
