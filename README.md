@@ -11,6 +11,8 @@ Dark Theme for Jira is a simple extension that allows users to switch between da
 ![Dark Theme](/public/dark.png)
 ![Light Theme](/public/light.png)
 
+## If you know possible fixes just PR
+
 Get In Touch: 
           <a href="https://lucapalminteri.com/" target="_blank">Website<a> | 
           <a href="mailto:lucapalminteri02@gmail.com" target="_blank">Email<a> |
