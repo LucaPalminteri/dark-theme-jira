@@ -1,41 +1,41 @@
-let header = document.getElementsByTagName("header")[0].childNodes[1];
-const btnCreate = document.getElementById("createGlobalItemIconButton");
-const btnTheme = document.createElement("button");
+let header = document.getElementsByTagName("header")[0].childNodes[1]
+const btnCreate = document.getElementById("createGlobalItemIconButton")
+const btnTheme = document.createElement("button")
 
-btnTheme.textContent = "☀";
-btnTheme.style.borderRadius = "50%";
-btnTheme.style.border = "none";
-btnTheme.style.height = "36px";
-btnTheme.style.width = "36px";
-btnTheme.style.fontSize = "20px";
-btnTheme.style.backgroundColor = "#CCC";
+btnTheme.textContent = "☀"
+btnTheme.style.borderRadius = "50%"
+btnTheme.style.border = "none"
+btnTheme.style.height = "36px"
+btnTheme.style.width = "36px"
+btnTheme.style.fontSize = "20px"
+btnTheme.style.backgroundColor = "#CCC"
 
-let theme = localStorage.getItem('theme');
-if (theme == null) theme = 'default';
+let theme = localStorage.getItem('theme')
+if (theme == null) theme = 'default'
 
 document.addEventListener('DOMContentLoaded',() => {
-    let theme = localStorage.getItem('theme');
-    if (theme == null) theme = 'default';
-    header.appendChild(btnTheme);
+    let theme = localStorage.getItem('theme')
+    if (theme == null) theme = 'default'
+    header.appendChild(btnTheme)
 })
 
 btnTheme.addEventListener('click', () => {
     if(theme != 'dark') {
-        theme = 'dark';
-        btnTheme.style.backgroundColor = "#FFF";
-        localStorage.setItem('theme','dark');
-        darkTheme();
+        theme = 'dark'
+        btnTheme.style.backgroundColor = "#FFF"
+        localStorage.setItem('theme','dark')
+        darkTheme()
     }
     else if (theme === 'dark') {
-        theme = 'default';
-        localStorage.setItem('theme','default');
-        restoreTheme();
+        theme = 'default'
+        localStorage.setItem('theme','default')
+        restoreTheme()
     }
 })
 
-header.appendChild(btnTheme);
+header.appendChild(btnTheme)
 
-const sheet = document.styleSheets[0];
+const sheet = document.styleSheets[0]
 
 const darkTheme = () => {
     sheet.insertRule(`
@@ -65,17 +65,17 @@ const darkTheme = () => {
         --logo-color: #0052CC;
         --logo-fill: #0052CC;
     }
-    `,0);
+    `,0)
     
     sheet.insertRule(`header {background: #222 !important;}`,0);
-    sheet.insertRule(`header button,input {background-color: #444 !important; color: #FFF !important}`,0);
-    sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0);
+    sheet.insertRule(`header button,input {background-color: #444 !important; color: #FFF !important}`,0)
+    sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0)
 }
 
-const restoreTheme = () => {for (let i = 0; i < 4; i++) sheet.deleteRule(0);}
+const restoreTheme = () => {for (let i = 0; i < 4; i++) sheet.deleteRule(0)}
 
 if(theme == 'dark') {
-    btnTheme.style.backgroundColor = "#FFF";
-    localStorage.setItem('theme','dark');
-    darkTheme();
+    btnTheme.style.backgroundColor = "#FFF"
+    localStorage.setItem('theme','dark')
+    darkTheme()
 }
