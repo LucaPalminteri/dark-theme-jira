@@ -43,6 +43,11 @@ btnTheme.addEventListener('click', () => {
 
 header.appendChild(btnTheme)
 
+function changeColumnBoardColor(color) {
+    let containerColumn = document.getElementsByClassName("ReactVirtualized__Grid__innerScrollContainer")
+    for (let i = 0; i < containerColumn.length; i++) containerColumn[i].style.backgroundColor = color
+}
+
 // Styles Sheets
 const sheet = document.styleSheets[0]
 
@@ -80,29 +85,18 @@ const darkTheme = () => {
     sheet.insertRule(`header button,input {background-color: ${THIRD_DARK} !important; color: ${WHITE} !important}`,0)
     sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0)
     sheet.insertRule(`.sc-1k8t1g3-3.cPpMlq {background-color: ${SECOND_DARK}}`,0)
-    sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0 fcvIhD {background-color: ${SECOND_DARK}}`,0)
-    sheet.insertRule(`.ReactVirtualized__Grid__innerScrollContainer {background-color: ${SECOND_DARK}}`,0)
+    sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0.fcvIhD {background-color: ${SECOND_DARK}}`,0)
+
+    changeColumnBoardColor(SECOND_DARK)
 }
 
-const restoreTheme = () => {for (let i = 0; i < 7; i++) sheet.deleteRule(0)}
+const restoreTheme = () => {
+    changeColumnBoardColor(WHITE)
+    for (let i = 0; i < 6; i++) sheet.deleteRule(0)
+}
 
 if(theme == 'dark') {
     btnTheme.style.backgroundColor = `${WHITE}`
     localStorage.setItem('theme','dark')
     darkTheme()
 }
-
-
-
-// Testing
-
-// let headerColumn = document.getElementsByClassName("sc-1k8t1g3-3 cPpMlq")
-// let mainColumn = document.getElementsByClassName("__board-test-hook__card-list-container riwk2x-0 fcvIhD")
-// let containerColumn = document.getElementsByClassName("ReactVirtualized__Grid__innerScrollContainer")
-
-// for (let i = 0; i < containerColumn.length; i++) {
-//     headerColumn[i].style.backgroundColor = `${SECOND_DARK}`
-//     mainColumn[i].style.backgroundColor = `${SECOND_DARK}`
-//     containerColumn[i].style.backgroundColor = `${SECOND_DARK}`
-// }
-
