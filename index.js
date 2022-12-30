@@ -13,6 +13,7 @@ btnTheme.style.backgroundColor = "#CCC"
 let theme = localStorage.getItem('theme')
 if (theme == null) theme = 'default'
 
+// Events
 document.addEventListener('DOMContentLoaded',() => {
     let theme = localStorage.getItem('theme')
     if (theme == null) theme = 'default'
@@ -37,6 +38,7 @@ header.appendChild(btnTheme)
 
 const sheet = document.styleSheets[0]
 
+// Styles Sheets
 const darkTheme = () => {
     sheet.insertRule(`
     :root {
@@ -67,7 +69,7 @@ const darkTheme = () => {
     }
     `,0)
     
-    sheet.insertRule(`header {background: #222 !important;}`,0);
+    sheet.insertRule(`header {background: #222 !important;}`,0)
     sheet.insertRule(`header button,input {background-color: #444 !important; color: #FFF !important}`,0)
     sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0)
 }
