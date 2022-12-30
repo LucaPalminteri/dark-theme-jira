@@ -86,13 +86,16 @@ const darkTheme = () => {
     sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0)
     sheet.insertRule(`.sc-1k8t1g3-3.cPpMlq {background-color: ${SECOND_DARK}}`,0)
     sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0.fcvIhD {background-color: ${SECOND_DARK}}`,0)
+    sheet.insertRule(`.sc-85vw0r-2.omUzj {background-color: transparent}`,0)
+    sheet.insertRule(`.eXHdwZ {background: ${MAIN_DARK} !important;}`,0)
+    sheet.insertRule(`.hrWzRr {background: ${SECOND_DARK} !important;}`,0)
 
     changeColumnBoardColor(SECOND_DARK)
 }
 
 const restoreTheme = () => {
     changeColumnBoardColor(WHITE)
-    for (let i = 0; i < 6; i++) sheet.deleteRule(0)
+    for (let i = 0; i < 9; i++) sheet.deleteRule(0)
 }
 
 if(theme == 'dark') {
