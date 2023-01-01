@@ -2,7 +2,6 @@ let header = document.getElementsByTagName("header")[0].childNodes[1]
 const btnCreate = document.getElementById("createGlobalItemIconButton")
 const btnTheme = document.createElement("button")
 
-// Colors
 const MAIN_DARK = '#333'
 const SECOND_DARK = '#222'
 const THIRD_DARK = '#444'
@@ -20,7 +19,6 @@ btnTheme.classList.add('.hover')
 let theme = localStorage.getItem('theme')
 if (theme == null) theme = 'default'
 
-// Events
 document.addEventListener('DOMContentLoaded',() => {
     let theme = localStorage.getItem('theme')
     if (theme == null) theme = 'default'
@@ -48,7 +46,6 @@ function changeColumnBoardColor(color) {
     for (let i = 0; i < containerColumn.length; i++) containerColumn[i].style.backgroundColor = color
 }
 
-// Styles Sheets
 const sheet = document.styleSheets[0]
 
 const darkTheme = () => {
@@ -89,7 +86,6 @@ const darkTheme = () => {
     sheet.insertRule(`.iv3orn-0.iBizzH {background-color: ${SECOND_DARK}}`,0)
     sheet.insertRule(`.sc-1b2zv19-0.CtdaR,.sc-6qnxf6-1.zWNJh {background-color: ${SECOND_DARK}}`,0)
     sheet.insertRule(`label {background-color: ${THIRD_DARK}}`,0)
-     
     
     changeColumnBoardColor(SECOND_DARK)
 }
@@ -104,5 +100,3 @@ if(theme == 'dark') {
     localStorage.setItem('theme','dark')
     darkTheme()
 }
-
-//testing
