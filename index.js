@@ -2,7 +2,6 @@ let header = document.getElementsByTagName("header")[0].childNodes[1]
 const btnCreate = document.getElementById("createGlobalItemIconButton")
 const btnTheme = document.createElement("button")
 
-// Colors
 const MAIN_DARK = '#333'
 const SECOND_DARK = '#222'
 const THIRD_DARK = '#444'
@@ -20,7 +19,6 @@ btnTheme.classList.add('.hover')
 let theme = localStorage.getItem('theme')
 if (theme == null) theme = 'default'
 
-// Events
 document.addEventListener('DOMContentLoaded',() => {
     let theme = localStorage.getItem('theme')
     if (theme == null) theme = 'default'
@@ -48,7 +46,6 @@ function changeColumnBoardColor(color) {
     for (let i = 0; i < containerColumn.length; i++) containerColumn[i].style.backgroundColor = color
 }
 
-// Styles Sheets
 const sheet = document.styleSheets[0]
 
 const darkTheme = () => {
@@ -86,16 +83,16 @@ const darkTheme = () => {
     sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0)
     sheet.insertRule(`.sc-1k8t1g3-3.cPpMlq {background-color: ${SECOND_DARK}}`,0)
     sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0.fcvIhD {background-color: ${SECOND_DARK}}`,0)
-    sheet.insertRule(`.sc-85vw0r-2.omUzj {background-color: transparent}`,0)
-    sheet.insertRule(`.eXHdwZ {background: ${MAIN_DARK} !important;}`,0)
-    sheet.insertRule(`.hrWzRr {background: ${SECOND_DARK} !important;}`,0)
-
+    sheet.insertRule(`.iv3orn-0.iBizzH {background-color: ${SECOND_DARK}}`,0)
+    sheet.insertRule(`.sc-1b2zv19-0.CtdaR,.sc-6qnxf6-1.zWNJh {background-color: ${SECOND_DARK}}`,0)
+    sheet.insertRule(`label {background-color: ${THIRD_DARK}}`,0)
+    
     changeColumnBoardColor(SECOND_DARK)
 }
 
 const restoreTheme = () => {
     changeColumnBoardColor(WHITE)
-    for (let i = 0; i < 9; i++) sheet.deleteRule(0)
+    for (let i = 0; i < sheet.cssRules.length; i++) sheet.deleteRule(0)
 }
 
 if(theme == 'dark') {
