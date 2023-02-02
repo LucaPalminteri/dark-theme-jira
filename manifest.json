@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Dark Theme for Jira",
     "description": "Allow user to switch between light and dark theme on the Jira website",
-    "version": "1.1",
+    "version": "1.2",
     "icons": {
         "16": "./images/dark16.png",
         "48": "./images/dark48.png",
