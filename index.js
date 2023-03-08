@@ -8,7 +8,8 @@ const SECOND_DARK = '#222'
 const THIRD_DARK = '#444'
 const WHITE = '#FFF'
 
-btnTheme.textContent = "☀"
+
+btnTheme.textContent = "🌙"
 btnTheme.style.borderRadius = "50%"
 btnTheme.style.border = "none"
 btnTheme.style.height = "36px"
@@ -30,12 +31,14 @@ document.addEventListener('DOMContentLoaded',() => {
 btnTheme.addEventListener('click', () => {
     if(theme != 'dark') {
         theme = 'dark'
+        btnTheme.textContent = "☀"
         btnTheme.style.backgroundColor = `${WHITE}`
         localStorage.setItem('theme','dark')
         darkTheme()
     }
     else if (theme === 'dark') {
         theme = 'default'
+        btnTheme.textContent = "🌙"
         localStorage.setItem('theme','default')
         restoreTheme()
     }
@@ -50,6 +53,7 @@ function changeColumnBoardColor(color) {
 
 // Styles Sheets
 const sheet = document.styleSheets[0]
+let sheetLength = 0;
 
 const darkTheme = () => {
     sheet.insertRule(`
@@ -79,23 +83,32 @@ const darkTheme = () => {
         --logo-color: #0052CC;
         --logo-fill: #0052CC;
     }
-    `,0)
+    `,0); sheetLength++
     
-    sheet.insertRule(`header {background: ${SECOND_DARK} !important;}`,0)
-    sheet.insertRule(`header button,input {background-color: ${THIRD_DARK} !important; color: ${WHITE} !important}`,0)
-    sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0)
-    sheet.insertRule(`.sc-1k8t1g3-3.cPpMlq {background-color: ${SECOND_DARK}}`,0)
-    sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0.fcvIhD {background-color: ${SECOND_DARK}}`,0)
-    sheet.insertRule(`.sc-85vw0r-2.omUzj {background-color: transparent}`,0)
-    sheet.insertRule(`.eXHdwZ {background: ${MAIN_DARK} !important;}`,0)
-    sheet.insertRule(`.hrWzRr {background: ${SECOND_DARK} !important;}`,0)
-
+    sheet.insertRule(`header {background: ${SECOND_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`header button,input {background-color: ${THIRD_DARK} !important; color: ${WHITE} !important}`,0); sheetLength++
+    sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0); sheetLength++
+    sheet.insertRule(`.sc-1k8t1g3-3.cPpMlq {background-color: ${SECOND_DARK}}`,0); sheetLength++
+    sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0.fcvIhD {background-color: ${SECOND_DARK}}`,0); sheetLength++
+    sheet.insertRule(`.sc-85vw0r-2.omUzj {background-color: transparent}`,0); sheetLength++
+    sheet.insertRule(`.eXHdwZ {background: ${MAIN_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`.hrWzRr {background: ${SECOND_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`[data-test-id="platform-board-kit.ui.column.draggable-column.styled-wrapper"] div div {background: ${SECOND_DARK};}`,0); sheetLength++
+    sheet.insertRule(`[data-test-id="platform-card.ui.card.focus-container"] div {background: ${THIRD_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`[data-onboarding-observer-id="backlog-wrapper"] div div {background:  ${THIRD_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`[data-test-id*="roadmap.timeline-table.components.chart-item.container-"] {background:  ${THIRD_DARK} !important;}`,0); sheetLength++
+    //sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] {-ms-overflow-style: none !important; scrollbar-width: none !important; overflow-y: scroll !important;}`,0); sheetLength++
+    //sheet.insertRule(`body::-webkit-scrollbar {bakcground: red;}`,0); sheetLength++
+    sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] {overflow-x: overlay !important; overflow-y: overlay !important;}`,0); sheetLength++
+    
     changeColumnBoardColor(SECOND_DARK)
 }
 
+
+
 const restoreTheme = () => {
     changeColumnBoardColor(WHITE)
-    for (let i = 0; i < 9; i++) sheet.deleteRule(0)
+    for (let i = 0; i < sheetLength; i++) sheet.deleteRule(0)
 }
 
 if(theme == 'dark') {
