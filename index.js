@@ -2,12 +2,10 @@ let header = document.getElementsByTagName("header")[0].childNodes[1]
 const btnCreate = document.getElementById("createGlobalItemIconButton")
 const btnTheme = document.createElement("button")
 
-// Colors
 const MAIN_DARK = '#333'
 const SECOND_DARK = '#222'
 const THIRD_DARK = '#444'
 const WHITE = '#FFF'
-
 
 btnTheme.textContent = "🌙"
 btnTheme.style.borderRadius = "50%"
@@ -21,7 +19,6 @@ btnTheme.classList.add('.hover')
 let theme = localStorage.getItem('theme')
 if (theme == null) theme = 'default'
 
-// Events
 document.addEventListener('DOMContentLoaded',() => {
     let theme = localStorage.getItem('theme')
     if (theme == null) theme = 'default'
@@ -51,7 +48,6 @@ function changeColumnBoardColor(color) {
     for (let i = 0; i < containerColumn.length; i++) containerColumn[i].style.backgroundColor = color
 }
 
-// Styles Sheets
 const sheet = document.styleSheets[0]
 let sheetLength = 0;
 
@@ -97,14 +93,17 @@ const darkTheme = () => {
     sheet.insertRule(`[data-test-id="platform-card.ui.card.focus-container"] div {background: ${THIRD_DARK} !important;}`,0); sheetLength++
     sheet.insertRule(`[data-onboarding-observer-id="backlog-wrapper"] div div {background:  ${THIRD_DARK} !important;}`,0); sheetLength++
     sheet.insertRule(`[data-test-id*="roadmap.timeline-table.components.chart-item.container-"] {background:  ${THIRD_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`[data-test-id*="roadmap.timeline-table.components.list-item.container-"] {background:  ${SECOND_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`.ghx-column.ui-sortable {background: ${SECOND_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`.ghx-column {background: ${SECOND_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] {overflow-x: overlay !important; overflow-y: overlay !important;}`,0); sheetLength++
+    // TODO: keep testing
+    //sheet.insertRule(`items-container div:last-child {background: red !important;}`,0); sheetLength++
     //sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] {-ms-overflow-style: none !important; scrollbar-width: none !important; overflow-y: scroll !important;}`,0); sheetLength++
     //sheet.insertRule(`body::-webkit-scrollbar {bakcground: red;}`,0); sheetLength++
-    sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] {overflow-x: overlay !important; overflow-y: overlay !important;}`,0); sheetLength++
     
     changeColumnBoardColor(SECOND_DARK)
 }
-
-
 
 const restoreTheme = () => {
     changeColumnBoardColor(WHITE)
