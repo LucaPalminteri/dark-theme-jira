@@ -1,11 +1,9 @@
 let header = document.getElementsByTagName("header")[0].childNodes[1]
-const btnCreate = document.getElementById("createGlobalItemIconButton")
 const btnTheme = document.createElement("button")
 
 const MAIN_DARK = '#333'
 const SECOND_DARK = '#222'
 const THIRD_DARK = '#444'
-const WHITE = '#FFF'
 
 btnTheme.textContent = "🌙"
 btnTheme.style.borderRadius = "50%"
@@ -14,10 +12,10 @@ btnTheme.style.height = "36px"
 btnTheme.style.width = "36px"
 btnTheme.style.fontSize = "20px"
 btnTheme.style.backgroundColor = "#CCC"
-btnTheme.classList.add('.hover')
 
 let theme = localStorage.getItem('theme')
 if (theme == null) theme = 'default'
+header.appendChild(btnTheme)
 
 document.addEventListener('DOMContentLoaded',() => {
     let theme = localStorage.getItem('theme')
@@ -29,7 +27,7 @@ btnTheme.addEventListener('click', () => {
     if(theme != 'dark') {
         theme = 'dark'
         btnTheme.textContent = "☀"
-        btnTheme.style.backgroundColor = `${WHITE}`
+        btnTheme.style.backgroundColor = '#FFF'
         localStorage.setItem('theme','dark')
         darkTheme()
     }
@@ -42,11 +40,6 @@ btnTheme.addEventListener('click', () => {
 })
 
 header.appendChild(btnTheme)
-
-function changeColumnBoardColor(color) {
-    let containerColumn = document.getElementsByClassName("ReactVirtualized__Grid__innerScrollContainer")
-    for (let i = 0; i < containerColumn.length; i++) containerColumn[i].style.backgroundColor = color
-}
 
 const sheet = document.styleSheets[0]
 let sheetLength = 0;
@@ -70,9 +63,9 @@ const darkTheme = () => {
         --ds-surface: ${MAIN_DARK};
         --ds-surface-overlay: ${THIRD_DARK};
         --ds-surface-raised: ${MAIN_DARK};
-        --ds-text: ${WHITE};
+        --ds-text: #FFF;
         --ds-text-disabled: #aaa;
-        --ds-text-highEmphasis: ${WHITE};
+        --ds-text-highEmphasis: #FFF;
         --ds-text-link-resting: #429eff;
         --ds-text-selected: #9494ff;
         --ds-text-subtle: #d2d2d2;
@@ -82,7 +75,7 @@ const darkTheme = () => {
     `,0); sheetLength++
     
     sheet.insertRule(`header {background: ${SECOND_DARK} !important;}`,0); sheetLength++
-    sheet.insertRule(`header button,input {background-color: ${THIRD_DARK} !important; color: ${WHITE} !important}`,0); sheetLength++
+    sheet.insertRule(`header button,input {background-color: ${THIRD_DARK} !important; color: '#FFF !important}`,0); sheetLength++
     sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: #0052CC !important;}`,0); sheetLength++
     sheet.insertRule(`.sc-1k8t1g3-3.cPpMlq {background-color: ${SECOND_DARK}}`,0); sheetLength++
     sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0.fcvIhD {background-color: ${SECOND_DARK}}`,0); sheetLength++
@@ -97,21 +90,17 @@ const darkTheme = () => {
     sheet.insertRule(`.ghx-column.ui-sortable {background: ${SECOND_DARK} !important;}`,0); sheetLength++
     sheet.insertRule(`.ghx-column {background: ${SECOND_DARK} !important;}`,0); sheetLength++
     sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] {overflow-x: overlay !important; overflow-y: overlay !important;}`,0); sheetLength++
-    // TODO: keep testing
-    //sheet.insertRule(`items-container div:last-child {background: red !important;}`,0); sheetLength++
-    //sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] {-ms-overflow-style: none !important; scrollbar-width: none !important; overflow-y: scroll !important;}`,0); sheetLength++
-    //sheet.insertRule(`body::-webkit-scrollbar {bakcground: red;}`,0); sheetLength++
-    
-    changeColumnBoardColor(SECOND_DARK)
+    sheet.insertRule(`[role="menuitem"] {background: ${THIRD_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`[for*="toggle-buttons-"] {filter: invert(1) !important;}`,0); sheetLength++
+    sheet.insertRule(`[data-test-id="global-pages.home.ui.home"] div div div div section {background: ${SECOND_DARK} !important;}`,0); sheetLength++
 }
 
 const restoreTheme = () => {
-    changeColumnBoardColor(WHITE)
     for (let i = 0; i < sheetLength; i++) sheet.deleteRule(0)
 }
 
 if(theme == 'dark') {
-    btnTheme.style.backgroundColor = `${WHITE}`
+    btnTheme.style.backgroundColor = '#FFF'
     localStorage.setItem('theme','dark')
     darkTheme()
 }
