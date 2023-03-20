@@ -1,8 +1,10 @@
 import Colors from "./colors"
 
+// Detect Jira website's header and add the new button
 let header = document.getElementsByTagName("header")[0].childNodes[1]
 const btnTheme = document.createElement("button")
 
+// Customize button
 btnTheme.textContent = "🌙"
 btnTheme.style.borderRadius = "50%"
 btnTheme.style.border = "none"
@@ -11,6 +13,7 @@ btnTheme.style.width = "36px"
 btnTheme.style.fontSize = "20px"
 btnTheme.style.backgroundColor = Colors.GrayBackground
 
+// Check if the theme already exists in the user's local storage
 let theme = localStorage.getItem('theme')
 if (theme == null) theme = 'default'
 header.appendChild(btnTheme)
@@ -39,9 +42,11 @@ btnTheme.addEventListener('click', () => {
 
 header.appendChild(btnTheme)
 
+// Webpage's default stylesheet
 const sheet = document.styleSheets[0]
 let sheetLength = 0;
 
+// Dark theme definition - Inject style rules into the site's stylesheet
 const darkTheme = () => {
     sheet.insertRule(`
     :root {
@@ -92,10 +97,12 @@ const darkTheme = () => {
     sheet.insertRule(`[data-test-id="global-pages.home.ui.home"] div div div div section {background: ${Colors.BlackSecond} !important;}`, 0); sheetLength++
 }
 
+// White theme restoration
 const restoreTheme = () => {
     for (let i = 0; i < sheetLength; i++) sheet.deleteRule(0)
 }
 
+// Toggle to dark theme (and save it)
 if (theme == 'dark') {
     btnTheme.style.backgroundColor = Colors.White
     localStorage.setItem('theme','dark')
