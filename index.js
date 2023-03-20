@@ -27,6 +27,7 @@ btnTheme.addEventListener('click', () => {
     if(theme != 'dark') {
         theme = 'dark'
         btnTheme.textContent = "☀"
+        btnTheme.style.color = "#FFF"
         btnTheme.style.backgroundColor = '#FFF'
         localStorage.setItem('theme','dark')
         darkTheme()
@@ -93,6 +94,10 @@ const darkTheme = () => {
     sheet.insertRule(`[role="menuitem"] {background: ${THIRD_DARK} !important;}`,0); sheetLength++
     sheet.insertRule(`[for*="toggle-buttons-"] {filter: invert(1) !important;}`,0); sheetLength++
     sheet.insertRule(`[data-test-id="global-pages.home.ui.home"] div div div div section {background: ${SECOND_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`[data-testid="software-board.board-container.board.virtual-board.fast-virtual-list.fast-virtual-list-wrapper"] {background: ${SECOND_DARK} !important;}`,0); sheetLength++
+    sheet.insertRule(`.ghx-info {filter: invert(0.5) !important;}`,0); sheetLength++
+    sheet.insertRule(`[data-test-id="software-backlog.card-list.card.card-contents.context-menu"] {background-color: red !important; z-index: 100}`,0); sheetLength++
+
 }
 
 const restoreTheme = () => {
