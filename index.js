@@ -56,7 +56,7 @@ const darkTheme = () => {
         --ds-background-selected-hovered: #484f5d;
         --ds-border: ${Colors.BlackSecond};
         --ds-link: #429eff;
-        --ds-menu-seperator-color: ${Colors.BlackThird};
+        --ds-menu-separator-color: ${Colors.BlackThird};
         --ds-shadow-raised: 0 1px 1px rgba(150, 150, 150, 0.25), 0 0 1px 1px rgba(150, 150, 150, 0.13);
         --ds-surface: ${Colors.BlackMain};
         --ds-surface-overlay: ${Colors.BlackThird};
