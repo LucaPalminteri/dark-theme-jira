@@ -57,45 +57,45 @@ const darkTheme = () => {
         --ds-background-neutral: ${Colors.BlackSecond};
         --ds-background-neutral-hovered: ${Colors.BlackMain};
         --ds-background-neutral-subtle: ${Colors.BlackThird};
-        --ds-background-neutral-subtle-hovered: #555;
-        --ds-background-selected: #353a44;
-        --ds-background-selected-hovered: #484f5d;
+        --ds-background-neutral-subtle-hovered: ${Colors.GrayHover}
+        --ds-background-selected: ${Colors.BackgroundSelected};
+        --ds-background-selected-hovered: ${Colors.BackgroundSelectedHover};
         --ds-border: ${Colors.BlackSecond};
-        --ds-link: #429eff;
+        --ds-link: ${Colors.Cyan};
         --ds-menu-separator-color: ${Colors.BlackThird};
-        --ds-shadow-raised: 0 1px 1px rgba(150, 150, 150, 0.25), 0 0 1px 1px rgba(150, 150, 150, 0.13);
+        --ds-shadow-raised: 0 1px 1px ${Colors.Shadow25}, 0 0 1px 1px ${Colors.Shadow13};
         --ds-surface: ${Colors.BlackMain};
         --ds-surface-overlay: ${Colors.BlackThird};
         --ds-surface-raised: ${Colors.BlackMain};
         --ds-text: ${Colors.White};
-        --ds-text-disabled: #aaa;
+        --ds-text-disabled: ${Colors.GrayDisabled}
         --ds-text-highEmphasis: ${Colors.White};
-        --ds-text-link-resting: #429eff;
-        --ds-text-selected: #9494ff;
-        --ds-text-subtle: #d2d2d2;
+        --ds-text-link-resting: ${Colors.Cyan};
+        --ds-text-selected: ${Colors.TextSelected};
+        --ds-text-subtle: ${Colors.TextSubtle};
         --logo-color: ${Colors.Blue};
         --logo-fill: ${Colors.Blue};
     }`, 0); sheetLength++
     
-    sheet.insertRule(`header {background: ${Colors.BlackSecond} !important;}`, 0); sheetLength++
-    sheet.insertRule(`header button,input {background-color: ${Colors.BlackThird} !important; color: '${Colors.White} !important}`, 0); sheetLength++
-    sheet.insertRule(`#createGlobalItemIconButton,#createGlobalItem {background-color: ${Colors.Blue} !important;}`, 0); sheetLength++
-    sheet.insertRule(`.sc-1k8t1g3-3.cPpMlq {background-color: ${Colors.BlackSecond}}`, 0); sheetLength++
-    sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0.fcvIhD {background-color: ${Colors.BlackSecond}}`, 0); sheetLength++
-    sheet.insertRule(`.sc-85vw0r-2.omUzj {background-color: transparent}`, 0); sheetLength++
-    sheet.insertRule(`.eXHdwZ {background: ${Colors.BlackMain} !important;}`, 0); sheetLength++
-    sheet.insertRule(`.hrWzRr {background: ${Colors.BlackSecond} !important;}`, 0); sheetLength++
-    sheet.insertRule(`[data-test-id="platform-board-kit.ui.column.draggable-column.styled-wrapper"] div div {background: ${Colors.BlackSecond};}`, 0); sheetLength++
-    sheet.insertRule(`[data-test-id="platform-card.ui.card.focus-container"] div {background: ${Colors.BlackThird} !important;}`, 0); sheetLength++
-    sheet.insertRule(`[data-onboarding-observer-id="backlog-wrapper"] div div {background:  ${Colors.BlackThird} !important;}`, 0); sheetLength++
-    sheet.insertRule(`[data-test-id*="roadmap.timeline-table.components.chart-item.container-"] {background: ${Colors.BlackThird} !important;}`, 0); sheetLength++
-    sheet.insertRule(`[data-test-id*="roadmap.timeline-table.components.list-item.container-"] {background: ${Colors.BlackSecond} !important;}`, 0); sheetLength++
-    sheet.insertRule(`.ghx-column.ui-sortable {background: ${Colors.BlackSecond} !important;}`, 0); sheetLength++
-    sheet.insertRule(`.ghx-column {background: ${Colors.BlackSecond} !important;}`, 0); sheetLength++
-    sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] {overflow-x: overlay !important; overflow-y: overlay !important;}`, 0); sheetLength++
-    sheet.insertRule(`[role="menuitem"] {background: ${Colors.BlackThird} !important;}`, 0); sheetLength++
-    sheet.insertRule(`[for*="toggle-buttons-"] {filter: invert(1) !important;}`, 0); sheetLength++
-    sheet.insertRule(`[data-test-id="global-pages.home.ui.home"] div div div div section {background: ${Colors.BlackSecond} !important;}`, 0); sheetLength++
+    sheet.insertRule(`header { background: ${Colors.BlackSecond} !important; }`, 0); sheetLength++
+    sheet.insertRule(`header button,input { background-color: ${Colors.BlackThird} !important; color: '${Colors.White} !important}`, 0); sheetLength++
+    sheet.insertRule(`#createGlobalItemIconButton, #createGlobalItem { background-color: ${Colors.Blue} !important; }`, 0); sheetLength++
+    sheet.insertRule(`.sc-1k8t1g3-3.cPpMlq { background-color: ${Colors.BlackSecond}}`, 0); sheetLength++
+    sheet.insertRule(`.__board-test-hook__card-list-container.riwk2x-0.fcvIhD { background-color: ${Colors.BlackSecond}}`, 0); sheetLength++
+    sheet.insertRule(`.sc-85vw0r-2.omUzj { background-color: transparent}`, 0); sheetLength++
+    sheet.insertRule(`.eXHdwZ { background: ${Colors.BlackMain} !important; }`, 0); sheetLength++
+    sheet.insertRule(`.hrWzRr { background: ${Colors.BlackSecond} !important; }`, 0); sheetLength++
+    sheet.insertRule(`[data-test-id="platform-board-kit.ui.column.draggable-column.styled-wrapper"] div div { background: ${Colors.BlackSecond}; }`, 0); sheetLength++
+    sheet.insertRule(`[data-test-id="platform-card.ui.card.focus-container"] div { background: ${Colors.BlackThird} !important; }`, 0); sheetLength++
+    sheet.insertRule(`[data-onboarding-observer-id="backlog-wrapper"] div div { background:  ${Colors.BlackThird} !important; }`, 0); sheetLength++
+    sheet.insertRule(`[data-test-id*="roadmap.timeline-table.components.chart-item.container-"] { background: ${Colors.BlackThird} !important; }`, 0); sheetLength++
+    sheet.insertRule(`[data-test-id*="roadmap.timeline-table.components.list-item.container-"] { background: ${Colors.BlackSecond} !important; }`, 0); sheetLength++
+    sheet.insertRule(`.ghx-column.ui-sortable { background: ${Colors.BlackSecond} !important; }`, 0); sheetLength++
+    sheet.insertRule(`.ghx-column { background: ${Colors.BlackSecond} !important; }`, 0); sheetLength++
+    sheet.insertRule(`[data-test-id="platform-board-kit.ui.board.scroll.board-scroll"] { overflow-x: overlay !important; overflow-y: overlay !important; }`, 0); sheetLength++
+    sheet.insertRule(`[role="menuitem"] { background: ${Colors.BlackThird} !important; }`, 0); sheetLength++
+    sheet.insertRule(`[for*="toggle-buttons-"] { filter: invert(1) !important; }`, 0); sheetLength++
+    sheet.insertRule(`[data-test-id="global-pages.home.ui.home"] div div div div section { background: ${Colors.BlackSecond} !important; }`, 0); sheetLength++
 }
 
 // White theme restoration
