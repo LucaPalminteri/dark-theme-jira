@@ -14,30 +14,31 @@ btnTheme.style.fontSize = "20px"
 btnTheme.style.backgroundColor = Colors.GrayBackground
 
 // Check if the theme already exists in the user's local storage
-let theme = localStorage.getItem('theme')
-if (theme == null) theme = 'default'
+let theme = localStorage?.getItem('theme') ?? 'default'
 header.appendChild(btnTheme)
 
-document.addEventListener('DOMContentLoaded',() => {
-    let theme = localStorage.getItem('theme')
-    if (theme == null) theme = 'default'
+document.addEventListener('DOMContentLoaded', () => {
+    theme = localStorage?.getItem('theme') ?? 'default'
     header.appendChild(btnTheme)
 })
 
+// Button click event
 btnTheme.addEventListener('click', () => {
-    if(theme != 'dark') {
+    // Change button from white to dark
+    if (theme != 'dark') {
         theme = 'dark'
         btnTheme.textContent = "☀"
         btnTheme.style.backgroundColor = Colors.White
-        localStorage.setItem('theme','dark')
+        localStorage.setItem('theme', 'dark')
         darkTheme()
+        return
     }
-    else if (theme === 'dark') {
-        theme = 'default'
-        btnTheme.textContent = "🌙"
-        localStorage.setItem('theme','default')
-        restoreTheme()
-    }
+
+    // Change button from dark to white (default)
+    theme = 'default'
+    btnTheme.textContent = "🌙"
+    localStorage.setItem('theme', 'default')
+    restoreTheme()
 })
 
 header.appendChild(btnTheme)
@@ -105,6 +106,6 @@ const restoreTheme = () => {
 // Toggle to dark theme (and save it)
 if (theme == 'dark') {
     btnTheme.style.backgroundColor = Colors.White
-    localStorage.setItem('theme','dark')
+    localStorage.setItem('theme', 'dark')
     darkTheme()
 }
