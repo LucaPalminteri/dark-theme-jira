@@ -62,6 +62,7 @@ const darkTheme = () => {
         --ds-background-selected: ${Colors.BackgroundSelected};
         --ds-background-selected-hovered: ${Colors.BackgroundSelectedHover};
         --ds-border: ${Colors.BlackSecond};
+        --ds-input: ${Colors.BlackThird} 
         --ds-link: ${Colors.Cyan};
         --ds-menu-separator-color: ${Colors.BlackThird};
         --ds-shadow-raised: 0 1px 1px ${Colors.Shadow25}, 0 0 1px 1px ${Colors.Shadow13};
@@ -69,7 +70,8 @@ const darkTheme = () => {
         --ds-surface-overlay: ${Colors.BlackThird};
         --ds-surface-raised: ${Colors.BlackMain};
         --ds-text: ${Colors.White};
-        --ds-text-disabled: ${Colors.GrayDisabled}
+        --ds-text-brand: ${Colors.White};
+        --ds-text-disabled: ${Colors.GrayDisabled};
         --ds-text-highEmphasis: ${Colors.White};
         --ds-text-link-resting: ${Colors.Cyan};
         --ds-text-selected: ${Colors.TextSelected};
