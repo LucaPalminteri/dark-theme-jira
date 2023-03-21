@@ -1,5 +1,6 @@
 // Color palette
 const Colors = {
+    // Main
     BlackMain: '#333',
     BlackSecond: '#222',
     BlackThird: '#444',

@@ -11,6 +11,7 @@ btnTheme.style.border = "none"
 btnTheme.style.height = "36px"
 btnTheme.style.width = "36px"
 btnTheme.style.fontSize = "20px"
+btnTheme.style.paddingTop = "0px";
 btnTheme.style.backgroundColor = Colors.GrayBackground
 
 // Check if the theme already exists in the user's local storage
